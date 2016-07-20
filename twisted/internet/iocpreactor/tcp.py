@@ -58,8 +58,7 @@ class Connection(abstract.FileHandle, _SocketCloser, _AbortingMixin):
 
 
     def dataReceived(self, rbuffer):
-        # XXX: some day, we'll have protocols that can handle raw buffers
-        self.protocol.dataReceived(str(rbuffer))
+        self.protocol.dataReceived(rbuffer)
 
 
     def readFromHandle(self, bufflist, evt):
